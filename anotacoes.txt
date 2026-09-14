@@ -1,0 +1,43 @@
+Informacoes Gerais: 
+
+Guilherme Arthur Silveira
+Estudante de Desenvolvimento de Sistemas | Desenvolvedor Full Stack em formação
+Desenvolvimento de Sistemas - Unidade SENAI
+Previsao de conclusao - 12/2026
+Meu objetivo profissional é na area de desenvovlimento, colocar em pratica tudo oque venho aprendendo e aplicando em projetos
+guilhermearthursilveira13@gmail.com
+https://www.linkedin.com/in/guilherme-arthur-silveira/
+https://github.com/guiarthur09
+
+Sobre mim: 
+
+Meu nome é Guilherme, estudante de Desenvolvimento de Sistemas, estou em busca de estagio como primeira opotunidade.
+Areas que me interessam: Back-end, Dados, Banco de Dados.
+
+Tecnologias: 
+
+PHP - C - Python - FastAPI - Pandas - Flask
+MySQL - Sqlite3
+HTML5 - CSS3
+Git - Github
+
+Tecnologias em aprendizagem:
+
+Docker
+
+Projetos: 
+
+Nome: JusTraduz
+Descrição: A linguagem a qual voce entende
+Problema resolvido: Traducao de documento juridicos
+Principais funcionalidades: Traducao de documentos juridicos, chat bot IA, agendamento 
+Tecnologias: PHP, MySQL, HTML5, CSS3, JS, APIs REST...
+Minha participação: Integracao com APIs de pagamento, banco de dados
+Maior aprendizado: Trabalho e organizacao em equipe
+Link do GitHub: https://github.com/TeamGHCP/JusTraduz
+Status: Desenvolvimento
+
+Inspiracao de Portifolio:
+
+https://www.figma.com/design/7UppfdFQlRYtBUF5mMBUXH/Developer-Portfolio-Website-Design--Community-?node-id=0-1&p=f&t=fv3gCheEwk48onPX-0
+
