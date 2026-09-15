@@ -2,7 +2,7 @@ anotacoes.txt
 .openai/
 
 # Dependências, caso futuramente use npm install
-package-lock.json
+package.json
 pnpm-lock.yaml
 
 # Logs
