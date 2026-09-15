@@ -215,6 +215,65 @@ h1 {
   letter-spacing: 0;
 }
 
+.hero-title {
+  overflow: hidden;
+}
+
+.title-line {
+  display: block;
+}
+
+.title-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.62em) rotateX(42deg);
+  transform-origin: left bottom;
+  animation: title-rise 820ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: calc(220ms + var(--delay));
+}
+
+.title-name {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  color: transparent;
+  background:
+    linear-gradient(90deg, var(--text) 0%, #ffffff 40%, var(--accent) 58%, var(--warm) 76%, var(--text) 100%);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: title-gradient 6s ease-in-out 1.1s infinite alternate;
+}
+
+.title-name::after {
+  content: "";
+  position: absolute;
+  inset: -0.08em -0.12em;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.2) 45%, transparent 62%);
+  transform: translateX(-115%);
+  animation: title-sheen 2.8s cubic-bezier(0.22, 1, 0.36, 1) 1.25s forwards;
+  pointer-events: none;
+}
+
+@keyframes title-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes title-gradient {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes title-sheen {
+  to {
+    transform: translateX(115%);
+  }
+}
+
 h2 {
   margin-bottom: 18px;
   font-size: clamp(2rem, 4vw, 3.35rem);
