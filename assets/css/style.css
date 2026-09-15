@@ -261,7 +261,7 @@ img {
   width: 100%;
   min-height: 38px;
   display: grid;
-  grid-template-columns: 28px 1fr 20px;
+  grid-template-columns: 54px 1fr 20px;
   align-items: center;
   gap: 8px;
   border: 0;
@@ -274,6 +274,23 @@ img {
   font-size: 0.9rem;
   text-align: left;
   transition: color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+
+.language-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(238, 248, 247, 0.72);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.language-code span:first-child {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .language-menu button:hover {
