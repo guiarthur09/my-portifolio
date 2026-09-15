@@ -3,6 +3,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinks = document.querySelector("[data-nav-links]");
 const links = [...document.querySelectorAll(".nav-links a")];
 const sections = [...document.querySelectorAll("main section[id]")];
+const shimmerButtons = [...document.querySelectorAll(".shimmer-button")];
 
 const closeMenu = () => {
   navToggle?.classList.remove("is-open");
@@ -52,5 +53,17 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
+shimmerButtons.forEach((button) => {
+  button.addEventListener("pointerdown", () => {
+    button.animate(
+      [
+        { transform: "translateY(1px) scale(0.99)" },
+        { transform: "translateY(0) scale(1)" },
+      ],
+      { duration: 180, easing: "ease-out" }
+    );
+  });
+});
+
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();

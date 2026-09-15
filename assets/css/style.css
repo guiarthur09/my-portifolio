@@ -231,6 +231,147 @@ h3 {
   background: rgba(238, 248, 247, 0.06);
 }
 
+.shimmer-button {
+  --spread: 90deg;
+  --radius: 100px;
+  --speed: 3s;
+  --cut: 0.05em;
+  --bg: #000000;
+  --shimmer-color: #ffffff;
+  position: relative;
+  z-index: 0;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 0 26px;
+  color: #ffffff;
+  background: var(--bg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  font-weight: 800;
+  white-space: nowrap;
+  transform: translate3d(0, 0, 0);
+  transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+.shimmer-button:hover {
+  transform: translateY(-2px) translate3d(0, 0, 0);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.34);
+}
+
+.shimmer-button:active {
+  transform: translateY(1px) translate3d(0, 0, 0);
+}
+
+.shimmer-button:focus-visible {
+  outline: 3px solid rgba(84, 214, 184, 0.42);
+  outline-offset: 4px;
+}
+
+.shimmer-label {
+  position: relative;
+  z-index: 2;
+  display: block;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.shimmer-spark {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: visible;
+  container-type: size;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.shimmer-spark > span {
+  position: absolute;
+  inset: 0;
+  height: 100cqh;
+  aspect-ratio: 1;
+  border-radius: 0;
+  animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
+}
+
+.shimmer-spark > span::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  width: auto;
+  background: conic-gradient(
+    from calc(270deg - (var(--spread) * 0.5)),
+    transparent 0,
+    var(--shimmer-color) var(--spread),
+    transparent var(--spread)
+  );
+  transform: translateZ(0) rotate(0);
+  animation: spin-around calc(var(--speed) * 2) infinite linear;
+}
+
+.shimmer-highlight {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  box-shadow: inset 0 -8px 10px rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: box-shadow 300ms ease-in-out;
+}
+
+.shimmer-button:hover .shimmer-highlight {
+  box-shadow: inset 0 -6px 10px rgba(255, 255, 255, 0.25);
+}
+
+.shimmer-button:active .shimmer-highlight {
+  box-shadow: inset 0 -10px 10px rgba(255, 255, 255, 0.25);
+}
+
+.shimmer-backdrop {
+  position: absolute;
+  inset: var(--cut);
+  z-index: -2;
+  border-radius: var(--radius);
+  background: var(--bg);
+  pointer-events: none;
+}
+
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+
+  65%,
+  85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
