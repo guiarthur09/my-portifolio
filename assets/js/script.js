@@ -757,6 +757,22 @@ const updateHeader = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
+const restartHeroIntro = () => {
+  const animatedElements = [
+    ...document.querySelectorAll(".hero-paths, .floating-paths, .path, .title-word"),
+  ];
+
+  animatedElements.forEach((element) => {
+    element.style.animation = "none";
+  });
+
+  document.body.offsetHeight;
+
+  animatedElements.forEach((element) => {
+    element.style.animation = "";
+  });
+};
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -798,6 +814,7 @@ shimmerButtons.forEach((button) => {
 
 window.addEventListener("scroll", updateHeader, { passive: true });
 window.addEventListener("resize", () => moveNavIndicator(), { passive: true });
+window.addEventListener("pageshow", restartHeroIntro);
 updateHeader();
 translatePage(localStorage.getItem("portfolio-language") || "pt-BR");
 moveNavIndicator();
