@@ -22,30 +22,30 @@
       <nav class="nav" aria-label="Navegação principal">
         <div class="nav-links" data-nav-links>
           <span class="nav-indicator" aria-hidden="true"></span>
-          <a class="nav-item is-active" href="#inicio" aria-label="Início">
+          <a class="nav-item is-active" href="#inicio" aria-label="Início" data-i18n-aria="nav.home">
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="m3 10.8 9-7 9 7" />
               <path d="M5 10v10h14V10" />
               <path d="M9 20v-6h6v6" />
             </svg>
-            <span>Início</span>
+            <span data-i18n="nav.home">Início</span>
           </a>
-          <a class="nav-item" href="#sobre" aria-label="Sobre">
+          <a class="nav-item" href="#sobre" aria-label="Sobre" data-i18n-aria="nav.about">
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="M19 21a7 7 0 0 0-14 0" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            <span>Sobre</span>
+            <span data-i18n="nav.about">Sobre</span>
           </a>
-          <a class="nav-item" href="#tecnologias" aria-label="Tecnologias">
+          <a class="nav-item" href="#tecnologias" aria-label="Tecnologias" data-i18n-aria="nav.tech">
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="m16 18 6-6-6-6" />
               <path d="m8 6-6 6 6 6" />
               <path d="m14.5 4-5 16" />
             </svg>
-            <span>Tecnologias</span>
+            <span data-i18n="nav.tech">Tecnologias</span>
           </a>
-          <a class="nav-item" href="#projetos" aria-label="Projetos">
+          <a class="nav-item" href="#projetos" aria-label="Projetos" data-i18n-aria="nav.projects">
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="M10 6h10" />
               <path d="M10 12h10" />
@@ -54,28 +54,86 @@
               <path d="M4 12h1" />
               <path d="M4 18h1" />
             </svg>
-            <span>Projetos</span>
+            <span data-i18n="nav.projects">Projetos</span>
           </a>
-          <a class="nav-item" href="#contato" aria-label="Contato">
+          <a class="nav-item" href="#contato" aria-label="Contato" data-i18n-aria="nav.contact">
             <svg aria-hidden="true" viewBox="0 0 24 24">
               <path d="M4 4h16v16H4z" />
               <path d="m4 7 8 6 8-6" />
             </svg>
-            <span>Contato</span>
+            <span data-i18n="nav.contact">Contato</span>
           </a>
         </div>
       </nav>
+
+      <div class="language-switcher" data-language-switcher>
+        <button
+          class="language-trigger"
+          type="button"
+          aria-label="Selecionar idioma"
+          aria-expanded="false"
+          data-language-trigger
+          data-i18n-aria="language.select"
+        >
+          <span class="language-flag" data-language-flag>🇧🇷</span>
+          <span class="language-current" data-language-current>Português (BR)</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+        <div class="language-menu" role="menu" data-language-menu>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="en">
+            <span>🇺🇸</span><span>English</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="zh-CN">
+            <span>🇨🇳</span><span>简体中文</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="zh-TW">
+            <span>🇹🇼</span><span>繁體中文</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="ja">
+            <span>🇯🇵</span><span>日本語</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="es">
+            <span>🇪🇸</span><span>Español</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="fr">
+            <span>🇫🇷</span><span>Français</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="true" data-lang="pt-BR">
+            <span>🇧🇷</span><span>Português (BR)</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="ko">
+            <span>🇰🇷</span><span>한국어</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="ru">
+            <span>🇷🇺</span><span>Русский</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="tr">
+            <span>🇹🇷</span><span>Türkçe</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="id">
+            <span>🇮🇩</span><span>Bahasa Indonesia</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="de">
+            <span>🇩🇪</span><span>Deutsch</span><span class="language-check">✓</span>
+          </button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-lang="fa">
+            <span>🇮🇷</span><span>فارسی</span><span class="language-check">✓</span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
       <section class="hero section" id="inicio">
         <div class="hero-content reveal">
-          <p class="eyebrow">Desenvolvedor Back-End</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Desenvolvedor Back-End</p>
           <h1 class="hero-title" aria-label="Olá, eu sou Guilherme Arthur Silveira.">
             <span class="title-line">
-              <span class="title-word" style="--delay: 0ms">Olá,</span>
-              <span class="title-word" style="--delay: 95ms">eu</span>
-              <span class="title-word" style="--delay: 190ms">sou</span>
+              <span class="title-word" style="--delay: 0ms" data-i18n="hero.title.hello">Olá,</span>
+              <span class="title-word" style="--delay: 95ms" data-i18n="hero.title.i">eu</span>
+              <span class="title-word" style="--delay: 190ms" data-i18n="hero.title.am">sou</span>
             </span>
             <span class="title-line title-name">
               <span class="title-word" style="--delay: 285ms">Guilherme</span>
@@ -83,7 +141,7 @@
               <span class="title-word" style="--delay: 475ms">Silveira.</span>
             </span>
           </h1>
-          <p class="hero-text">
+          <p class="hero-text" data-i18n="hero.text">
             Estudante de Desenvolvimento de Sistemas no SENAI, buscando estágio para transformar estudo,
             prática e projetos em soluções úteis para pessoas e empresas.
           </p>
@@ -93,17 +151,17 @@
               <span class="shimmer-spark" aria-hidden="true">
                 <span></span>
               </span>
-              <span class="shimmer-label">Ver projetos</span>
+              <span class="shimmer-label" data-i18n="hero.cta">Ver projetos</span>
               <span class="shimmer-highlight" aria-hidden="true"></span>
               <span class="shimmer-backdrop" aria-hidden="true"></span>
             </a>
           </div>
 
           <div class="hero-meta" aria-label="Informações rápidas">
-            <span>Desenvolvimento de Software</span>
-            <span>Back-end</span>
-            <span>Banco de Dados</span>
-            <span>Dados</span>
+            <span data-i18n="hero.meta.software">Desenvolvimento de Software</span>
+            <span data-i18n="hero.meta.backend">Back-end</span>
+            <span data-i18n="hero.meta.database">Banco de Dados</span>
+            <span data-i18n="hero.meta.data">Dados</span>
           </div>
         </div>
 
@@ -112,9 +170,9 @@
             <span>GA</span>
           </div>
           <div>
-            <p class="card-kicker">Disponível para estágio</p>
-            <h2>Desenvolvimento de Sistemas</h2>
-            <p>
+            <p class="card-kicker" data-i18n="profile.kicker">Disponível para estágio</p>
+            <h2 data-i18n="profile.title">Desenvolvimento de Sistemas</h2>
+            <p data-i18n="profile.text">
               Foco em aprender com projetos reais, colaborar com equipes e evoluir em back-end, APIs e bancos de dados.
             </p>
           </div>
@@ -127,15 +185,15 @@
 
       <section class="section split" id="sobre">
         <div class="section-heading reveal">
-          <p class="eyebrow">Sobre mim</p>
-          <h2>Em busca da primeira oportunidade para crescer como desenvolvedor.</h2>
+          <p class="eyebrow" data-i18n="about.eyebrow">Sobre mim</p>
+          <h2 data-i18n="about.title">Em busca da primeira oportunidade para crescer como desenvolvedor.</h2>
         </div>
         <div class="text-block reveal">
-          <p>
+          <p data-i18n="about.p1">
             Meu nome é Guilherme, sou estudante de Desenvolvimento de Sistemas e estou em busca de um estágio
             para colocar em prática tudo o que venho aprendendo em programação, banco de dados e construção de aplicações.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             Tenho interesse especial por back-end, dados e banco de dados. Gosto de entender problemas, organizar
             soluções e construir projetos que conectem aprendizado técnico com uso real.
           </p>
@@ -144,14 +202,14 @@
 
       <section class="section" id="tecnologias">
         <div class="section-heading reveal">
-          <p class="eyebrow">Tecnologias</p>
-          <h2>Ferramentas que estou usando e estudando.</h2>
+          <p class="eyebrow" data-i18n="tech.eyebrow">Tecnologias</p>
+          <h2 data-i18n="tech.title">Ferramentas que estou usando e estudando.</h2>
         </div>
 
         <div class="tech-grid">
           <article class="tech-card reveal">
             <span class="tech-icon">01</span>
-            <h3>Linguagens e back-end</h3>
+            <h3 data-i18n="tech.card1">Linguagens e back-end</h3>
             <div class="tags">
               <span>PHP</span>
               <span>C</span>
@@ -163,7 +221,7 @@
 
           <article class="tech-card reveal">
             <span class="tech-icon">02</span>
-            <h3>Dados e banco de dados</h3>
+            <h3 data-i18n="tech.card2">Dados e banco de dados</h3>
             <div class="tags">
               <span>Pandas</span>
               <span>MySQL</span>
@@ -173,7 +231,7 @@
 
           <article class="tech-card reveal">
             <span class="tech-icon">03</span>
-            <h3>Web e ferramentas</h3>
+            <h3 data-i18n="tech.card3">Web e ferramentas</h3>
             <div class="tags">
               <span>HTML5</span>
               <span>CSS3</span>
@@ -187,22 +245,22 @@
 
       <section class="section" id="projetos">
         <div class="section-heading reveal">
-          <p class="eyebrow">Projeto em destaque</p>
-          <h2>Projetos onde transformo estudo em prática.</h2>
+          <p class="eyebrow" data-i18n="projects.eyebrow">Projeto em destaque</p>
+          <h2 data-i18n="projects.title">Projetos onde transformo estudo em prática.</h2>
         </div>
 
         <article class="project-card reveal">
           <div class="project-main">
-            <div class="project-status">Em desenvolvimento</div>
+            <div class="project-status" data-i18n="project.status">Em desenvolvimento</div>
             <h3>JusTraduz</h3>
-            <p class="project-tagline">A linguagem a qual você entende.</p>
-            <p>
+            <p class="project-tagline" data-i18n="project.tagline">A linguagem a qual você entende.</p>
+            <p data-i18n="project.text">
               Plataforma voltada para tradução de documentos jurídicos, com chatbot de IA, agendamento e integração
               com APIs REST.
             </p>
             <div class="project-actions">
               <a class="btn btn-primary" href="https://github.com/TeamGHCP/JusTraduz" target="_blank" rel="noreferrer">
-                Ver no GitHub
+                <span data-i18n="project.github">Ver no GitHub</span>
               </a>
             </div>
           </div>
@@ -210,20 +268,20 @@
           <div class="project-details">
             <dl>
               <div>
-                <dt>Problema resolvido</dt>
-                <dd>Tradução de documentos jurídicos para uma linguagem mais acessível.</dd>
+                <dt data-i18n="project.problem.title">Problema resolvido</dt>
+                <dd data-i18n="project.problem.text">Tradução de documentos jurídicos para uma linguagem mais acessível.</dd>
               </div>
               <div>
-                <dt>Minha participação</dt>
-                <dd>Integração com APIs de pagamento e organização do banco de dados.</dd>
+                <dt data-i18n="project.role.title">Minha participação</dt>
+                <dd data-i18n="project.role.text">Integração com APIs de pagamento e organização do banco de dados.</dd>
               </div>
               <div>
-                <dt>Maior aprendizado</dt>
-                <dd>Trabalho em equipe, organização e colaboração durante o desenvolvimento.</dd>
+                <dt data-i18n="project.learning.title">Maior aprendizado</dt>
+                <dd data-i18n="project.learning.text">Trabalho em equipe, organização e colaboração durante o desenvolvimento.</dd>
               </div>
               <div>
-                <dt>Tecnologias</dt>
-                <dd>PHP, MySQL, HTML5, CSS3, JavaScript e APIs REST.</dd>
+                <dt data-i18n="project.tech.title">Tecnologias</dt>
+                <dd data-i18n="project.tech.text">PHP, MySQL, HTML5, CSS3, JavaScript e APIs REST.</dd>
               </div>
             </dl>
           </div>
@@ -232,13 +290,13 @@
 
       <section class="contact section" id="contato">
         <div class="contact-panel reveal">
-          <p class="eyebrow">Contato</p>
-          <h2>Vamos conversar sobre oportunidades, estágio ou projetos.</h2>
-          <p>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contato</p>
+          <h2 data-i18n="contact.title">Vamos conversar sobre oportunidades, estágio ou projetos.</h2>
+          <p data-i18n="contact.text">
             Estou aberto a aprender, contribuir com equipes e participar de desafios na área de desenvolvimento.
           </p>
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:guilhermearthursilveira13@gmail.com">Enviar e-mail</a>
+            <a class="btn btn-primary" href="mailto:guilhermearthursilveira13@gmail.com" data-i18n="contact.email">Enviar e-mail</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/guilherme-arthur-silveira/" target="_blank" rel="noreferrer">
               LinkedIn
             </a>
