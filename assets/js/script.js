@@ -11,13 +11,13 @@ const languageFlag = document.querySelector("[data-language-flag]");
 const languageOptions = [...document.querySelectorAll("[data-lang]")];
 
 const languageMeta = {
-  en: { label: "English", flag: "🇺🇸", htmlLang: "en" },
+  en: { label: "English", flag: "assets/img/estados-unidos.png", htmlLang: "en" },
   "zh-CN": { label: "简体中文", flag: "🇨🇳", htmlLang: "zh-CN" },
   "zh-TW": { label: "繁體中文", flag: "🇹🇼", htmlLang: "zh-TW" },
   ja: { label: "日本語", flag: "🇯🇵", htmlLang: "ja" },
-  es: { label: "Español", flag: "🇪🇸", htmlLang: "es" },
+  es: { label: "Español", flag: "assets/img/espanha.png", htmlLang: "es" },
   fr: { label: "Français", flag: "🇫🇷", htmlLang: "fr" },
-  "pt-BR": { label: "Português (BR)", flag: "🇧🇷", htmlLang: "pt-BR" },
+  "pt-BR": { label: "Português (BR)", flag: "assets/img/brasilia.png", htmlLang: "pt-BR" },
   ko: { label: "한국어", flag: "🇰🇷", htmlLang: "ko" },
   ru: { label: "Русский", flag: "🇷🇺", htmlLang: "ru" },
   tr: { label: "Türkçe", flag: "🇹🇷", htmlLang: "tr" },
@@ -679,8 +679,9 @@ const openLanguageMenu = () => {
 };
 
 const translatePage = (lang) => {
-  const dictionary = translations[lang] || translations["pt-BR"];
-  const meta = languageMeta[lang] || languageMeta["pt-BR"];
+  const selectedLang = ["pt-BR", "en", "es"].includes(lang) ? lang : "pt-BR";
+  const dictionary = translations[selectedLang] || translations["pt-BR"];
+  const meta = languageMeta[selectedLang] || languageMeta["pt-BR"];
 
   document.documentElement.lang = meta.htmlLang;
   document.documentElement.dir = "ltr";
@@ -697,13 +698,14 @@ const translatePage = (lang) => {
   });
 
   languageCurrent.textContent = meta.label;
-  languageFlag.textContent = meta.flag;
+  languageFlag.src = meta.flag;
+  languageFlag.alt = meta.label;
 
   languageOptions.forEach((option) => {
-    option.setAttribute("aria-checked", String(option.dataset.lang === lang));
+    option.setAttribute("aria-checked", String(option.dataset.lang === selectedLang));
   });
 
-  localStorage.setItem("portfolio-language", lang);
+  localStorage.setItem("portfolio-language", selectedLang);
   requestAnimationFrame(() => moveNavIndicator());
 };
 

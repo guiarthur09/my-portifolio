@@ -5,23 +5,44 @@ const root = process.cwd();
 const dist = path.join(root, "dist");
 const serverDir = path.join(dist, "server");
 
-const files = [
+const textFiles = [
   ["index.html", "text/html; charset=utf-8"],
   ["assets/css/style.css", "text/css; charset=utf-8"],
   ["assets/js/script.js", "text/javascript; charset=utf-8"],
 ];
 
+const binaryFiles = [
+  ["assets/img/brasilia.png", "image/png"],
+  ["assets/img/espanha.png", "image/png"],
+  ["assets/img/estados-unidos.png", "image/png"],
+];
+
 const entries = {};
 
-for (const [file, type] of files) {
+for (const [file, type] of textFiles) {
   const content = await readFile(path.join(root, file), "utf8");
   const route = `/${file.replaceAll("\\", "/")}`;
-  entries[route] = { body: content, type };
+  entries[route] = { body: content, type, encoding: "text" };
+}
+
+for (const [file, type] of binaryFiles) {
+  const content = await readFile(path.join(root, file));
+  const route = `/${file.replaceAll("\\", "/")}`;
+  entries[route] = { body: content.toString("base64"), type, encoding: "base64" };
 }
 
 entries["/"] = entries["/index.html"];
 
 const worker = `const files = ${JSON.stringify(entries, null, 2)};
+
+const fromBase64 = (value) => {
+  const binary = atob(value);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index);
+  }
+  return bytes;
+};
 
 export default {
   async fetch(request) {
@@ -33,7 +54,9 @@ export default {
       return new Response("Not found", { status: 404 });
     }
 
-    return new Response(file.body, {
+    const body = file.encoding === "base64" ? fromBase64(file.body) : file.body;
+
+    return new Response(body, {
       headers: {
         "content-type": file.type,
         "cache-control": pathname === "/" || pathname === "/index.html"

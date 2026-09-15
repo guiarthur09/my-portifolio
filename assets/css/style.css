@@ -227,8 +227,11 @@ img {
 }
 
 .language-flag {
-  font-size: 1rem;
-  line-height: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(238, 248, 247, 0.14);
 }
 
 .language-menu {
@@ -261,7 +264,7 @@ img {
   width: 100%;
   min-height: 38px;
   display: grid;
-  grid-template-columns: 54px 1fr 20px;
+  grid-template-columns: 30px 1fr 20px;
   align-items: center;
   gap: 8px;
   border: 0;
@@ -276,21 +279,12 @@ img {
   transition: color 220ms ease, background 220ms ease, transform 220ms ease;
 }
 
-.language-code {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(238, 248, 247, 0.72);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.language-code span:first-child {
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.95rem;
-  line-height: 1;
+.language-option-flag {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(238, 248, 247, 0.14);
 }
 
 .language-menu button:hover {
