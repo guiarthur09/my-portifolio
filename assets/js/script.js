@@ -1,25 +1,30 @@
 const header = document.querySelector("[data-header]");
-const navToggle = document.querySelector("[data-nav-toggle]");
 const navLinks = document.querySelector("[data-nav-links]");
-const links = [...document.querySelectorAll(".nav-links a")];
+const navIndicator = document.querySelector(".nav-indicator");
+const links = [...document.querySelectorAll(".nav-item")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const shimmerButtons = [...document.querySelectorAll(".shimmer-button")];
 
-const closeMenu = () => {
-  navToggle?.classList.remove("is-open");
-  navLinks?.classList.remove("is-open");
-  document.body.classList.remove("menu-open");
-  navToggle?.setAttribute("aria-expanded", "false");
+const moveNavIndicator = (activeLink = document.querySelector(".nav-item.is-active")) => {
+  if (!navLinks || !navIndicator || !activeLink) return;
+
+  const navRect = navLinks.getBoundingClientRect();
+  const linkRect = activeLink.getBoundingClientRect();
+
+  navLinks.style.setProperty("--indicator-x", `${linkRect.left - navRect.left}px`);
+  navLinks.style.setProperty("--indicator-y", `${linkRect.top - navRect.top}px`);
+  navLinks.style.setProperty("--indicator-width", `${linkRect.width}px`);
+  navLinks.style.setProperty("--indicator-height", `${linkRect.height}px`);
 };
 
-navToggle?.addEventListener("click", () => {
-  const isOpen = navLinks?.classList.toggle("is-open");
-  navToggle.classList.toggle("is-open", Boolean(isOpen));
-  document.body.classList.toggle("menu-open", Boolean(isOpen));
-  navToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
-});
+const setActiveLink = (activeLink) => {
+  links.forEach((link) => link.classList.toggle("is-active", link === activeLink));
+  moveNavIndicator(activeLink);
+};
 
-links.forEach((link) => link.addEventListener("click", closeMenu));
+links.forEach((link) => {
+  link.addEventListener("click", () => setActiveLink(link));
+});
 
 const updateHeader = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -44,9 +49,8 @@ const sectionObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
 
-      links.forEach((link) => {
-        link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
-      });
+      const activeLink = links.find((link) => link.getAttribute("href") === `#${entry.target.id}`);
+      setActiveLink(activeLink);
     });
   },
   { rootMargin: "-45% 0px -45% 0px" }
@@ -66,4 +70,6 @@ shimmerButtons.forEach((button) => {
 });
 
 window.addEventListener("scroll", updateHeader, { passive: true });
+window.addEventListener("resize", () => moveNavIndicator(), { passive: true });
 updateHeader();
+moveNavIndicator();
