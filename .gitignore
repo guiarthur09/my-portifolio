@@ -1,0 +1,18 @@
+anotacoes.txt
+.openai/
+
+# Dependências, caso futuramente use npm install
+package-lock.json
+pnpm-lock.yaml
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos locais do sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

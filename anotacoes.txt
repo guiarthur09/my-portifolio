@@ -40,4 +40,3 @@ Status: Desenvolvimento
 Inspiracao de Portifolio:
 
 https://www.figma.com/design/7UppfdFQlRYtBUF5mMBUXH/Developer-Portfolio-Website-Design--Community-?node-id=0-1&p=f&t=fv3gCheEwk48onPX-0
-
