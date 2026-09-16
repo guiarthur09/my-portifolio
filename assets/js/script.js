@@ -14,6 +14,10 @@ const projectShowcase = document.querySelector("[data-project-showcase]");
 const projectRows = [...document.querySelectorAll("[data-project-row]")];
 const projectPreview = document.querySelector("[data-project-preview]");
 const projectPreviewImage = document.querySelector("[data-project-preview-img]");
+const copyEmailLinks = [...document.querySelectorAll("[data-copy-email]")];
+const copyToast = document.querySelector("[data-copy-toast]");
+const emailAddress = "guilhermearthursilveira13@gmail.com";
+let copyToastTimer;
 
 const languageMeta = {
   en: { label: "English", flag: "assets/img/estados-unidos.png", htmlLang: "en" },
@@ -80,6 +84,10 @@ const translations = {
     "contact.title": "Vamos conversar sobre oportunidades, estágio ou projetos.",
     "contact.text": "Estou aberto a aprender, contribuir com equipes e participar de desafios na área de desenvolvimento.",
     "contact.email": "Enviar e-mail",
+    "footer.description": "Desenvolvedor Back-End em formação, construindo soluções com código, dados e bancos de dados.",
+    "footer.contact": "Vamos conversar?",
+    "footer.rights": "© 2026 Guilherme Arthur Silveira. Todos os direitos reservados.",
+    "toast.emailCopied": "E-mail copiado com sucesso",
   },
   en: {
     "language.select": "Select language",
@@ -129,6 +137,10 @@ const translations = {
     "contact.title": "Let's talk about opportunities, internships, or projects.",
     "contact.text": "I am open to learning, contributing to teams, and taking on challenges in development.",
     "contact.email": "Send email",
+    "footer.description": "Back-End Developer in training, building solutions with code, data, and databases.",
+    "footer.contact": "Let's talk?",
+    "footer.rights": "© 2026 Guilherme Arthur Silveira. All rights reserved.",
+    "toast.emailCopied": "Email copied successfully",
   },
   es: {
     "language.select": "Seleccionar idioma",
@@ -178,6 +190,10 @@ const translations = {
     "contact.title": "Hablemos sobre oportunidades, pasantías o proyectos.",
     "contact.text": "Estoy abierto a aprender, contribuir con equipos y participar en desafíos de desarrollo.",
     "contact.email": "Enviar email",
+    "footer.description": "Desarrollador Back-End en formación, creando soluciones con código, datos y bases de datos.",
+    "footer.contact": "¿Hablamos?",
+    "footer.rights": "© 2026 Guilherme Arthur Silveira. Todos los derechos reservados.",
+    "toast.emailCopied": "Correo copiado correctamente",
   },
   fr: {
     "language.select": "Choisir la langue",
@@ -717,6 +733,52 @@ const translatePage = (lang) => {
   requestAnimationFrame(() => moveNavIndicator());
 };
 
+const fallbackCopyEmail = () => {
+  const textarea = document.createElement("textarea");
+  textarea.value = emailAddress;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  textarea.style.top = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+};
+
+const showCopyToast = () => {
+  if (!copyToast) return;
+
+  copyToast.classList.remove("is-visible");
+  void copyToast.offsetWidth;
+  copyToast.classList.add("is-visible");
+
+  clearTimeout(copyToastTimer);
+  copyToastTimer = window.setTimeout(() => {
+    copyToast.classList.remove("is-visible");
+  }, 3000);
+};
+
+const copyEmailToClipboard = async (event) => {
+  event.preventDefault();
+
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(emailAddress);
+    } else {
+      fallbackCopyEmail();
+    }
+  } catch {
+    fallbackCopyEmail();
+  }
+
+  showCopyToast();
+};
+
+copyEmailLinks.forEach((link) => {
+  link.addEventListener("click", copyEmailToClipboard);
+});
+
 languageTrigger?.addEventListener("click", () => {
   if (languageSwitcher?.classList.contains("is-open")) {
     closeLanguageMenu();
@@ -784,19 +846,16 @@ const restartHeroIntro = () => {
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
     });
   },
-  { threshold: 0.16 }
+  { rootMargin: "-8% 0px -8% 0px", threshold: 0.14 }
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
 techItems.forEach((item, index) => {
-  item.style.setProperty("--tech-delay", `${(index % 5) * 95}ms`);
+  item.style.setProperty("--tech-delay", `${(index % 6) * 95}ms`);
 });
 
 const techObserver = new IntersectionObserver(

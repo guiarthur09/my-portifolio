@@ -8,6 +8,8 @@
       content="Portfólio de Guilherme Arthur Silveira, estudante de Desenvolvimento de Sistemas e desenvolvedor Back-End."
     />
     <title>Guilherme Arthur Silveira | Portfólio</title>
+    <link rel="icon" type="image/png" href="assets/favicon/Favicon_G_Desenvolvedor-removebg-preview.png" />
+    <link rel="apple-touch-icon" href="assets/favicon/Favicon_G_Desenvolvedor-removebg-preview.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,6 +20,11 @@
     <script src="assets/js/script.js" defer></script>
   </head>
   <body>
+    <div class="copy-toast" role="status" aria-live="polite" data-copy-toast>
+      <span class="copy-toast-dot" aria-hidden="true"></span>
+      <span data-i18n="toast.emailCopied">E-mail copiado com sucesso</span>
+    </div>
+
     <header class="site-header" data-header>
       <nav class="nav" aria-label="Navegação principal">
         <div class="nav-links" data-nav-links>
@@ -203,6 +210,9 @@
           <div class="tech-item" aria-label="SQLite3">
             <img class="tech-logo" src="assets/svg/sqlite-svgrepo-com.svg" alt="" />
           </div>
+          <div class="tech-item" aria-label="FastAPI">
+            <img class="tech-logo" src="assets/svg/fastapi-svgrepo-com.svg" alt="" />
+          </div>
           <div class="tech-item" aria-label="PHP">
             <img class="tech-logo" src="assets/svg/php02-svgrepo-com.svg" alt="" />
           </div>
@@ -277,18 +287,68 @@
             Estou aberto a aprender, contribuir com equipes e participar de desafios na área de desenvolvimento.
           </p>
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:guilhermearthursilveira13@gmail.com" data-i18n="contact.email">Enviar e-mail</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/guilherme-arthur-silveira/" target="_blank" rel="noreferrer">
-              LinkedIn
+            <a
+              class="contact-icon-link"
+              href="mailto:guilhermearthursilveira13@gmail.com"
+              aria-label="Copiar e-mail"
+              data-copy-email
+            >
+              <svg class="gmail-icon" aria-hidden="true" viewBox="0 0 32 24">
+                <path d="M4 5v14" />
+                <path d="M28 5v14" />
+                <path d="M4 5 16 15 28 5" />
+              </svg>
+            </a>
+            <a
+              class="contact-icon-link"
+              href="https://www.linkedin.com/in/guilherme-arthur-silveira/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <span>In</span>
             </a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <p>Guilherme Arthur Silveira</p>
-      <a href="mailto:guilhermearthursilveira13@gmail.com">guilhermearthursilveira13@gmail.com</a>
+    <footer class="footer reveal">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="footer-logo" href="#inicio" aria-label="Voltar ao início">
+            <img src="assets/favicon/Favicon_G_Desenvolvedor-removebg-preview.png" alt="" />
+            <span>Guilherme Arthur Silveira</span>
+          </a>
+          <p data-i18n="footer.description">Desenvolvedor Back-End em formação, construindo soluções com código, dados e bancos de dados.</p>
+        </div>
+
+        <div class="footer-contact">
+          <p data-i18n="footer.contact">Vamos conversar?</p>
+          <a href="mailto:guilhermearthursilveira13@gmail.com" data-copy-email>guilhermearthursilveira13@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">© 2026 Guilherme Arthur Silveira. Todos os direitos reservados.</span>
+        <div class="footer-socials" aria-label="Links sociais">
+          <a href="mailto:guilhermearthursilveira13@gmail.com" aria-label="Copiar e-mail" data-copy-email>
+            <svg class="gmail-icon" aria-hidden="true" viewBox="0 0 32 24">
+              <path d="M4 5v14" />
+              <path d="M28 5v14" />
+              <path d="M4 5 16 15 28 5" />
+            </svg>
+          </a>
+          <a href="https://github.com/guiarthur09" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M15 22v-3.4a3.1 3.1 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.9 12.9 0 0 0-6.8 0C5.6 2 4.5 2.3 4.5 2.3a4.9 4.9 0 0 0-.1 3.6A5.2 5.2 0 0 0 3 9.5c0 5.2 3.1 6.4 6.1 6.7a2.8 2.8 0 0 0-.8 1.7c-.7.3-2.5.8-3.6-1a2.6 2.6 0 0 0-1.9-1.3s-1.2 0-.1.8a3.3 3.3 0 0 1 1.4 1.9s.8 2.7 4.1 1.8V22" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/guilherme-arthur-silveira/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <span>In</span>
+          </a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

@@ -10,6 +10,7 @@ const textFiles = [
   ["assets/css/style.css", "text/css; charset=utf-8"],
   ["assets/js/script.js", "text/javascript; charset=utf-8"],
   ["assets/svg/css3-02-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/fastapi-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
   ["assets/svg/flask-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
   ["assets/svg/html-124-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
   ["assets/svg/linux-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
@@ -22,6 +23,7 @@ const textFiles = [
 ];
 
 const binaryFiles = [
+  ["assets/favicon/Favicon_G_Desenvolvedor-removebg-preview.png", "image/png"],
   ["assets/img/brasilia.png", "image/png"],
   ["assets/img/espanha.png", "image/png"],
   ["assets/img/estados-unidos.png", "image/png"],
