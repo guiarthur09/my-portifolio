@@ -9,12 +9,23 @@ const textFiles = [
   ["index.html", "text/html; charset=utf-8"],
   ["assets/css/style.css", "text/css; charset=utf-8"],
   ["assets/js/script.js", "text/javascript; charset=utf-8"],
+  ["assets/svg/css3-02-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/flask-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/html-124-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/linux-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/mysql-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/pandas-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/php02-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/python-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/sqlite-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
+  ["assets/svg/windows-174-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
 ];
 
 const binaryFiles = [
   ["assets/img/brasilia.png", "image/png"],
   ["assets/img/espanha.png", "image/png"],
   ["assets/img/estados-unidos.png", "image/png"],
+  ["assets/img/JusTraduz_Logo_Melhorado.webp", "image/webp"],
 ];
 
 const entries = {};

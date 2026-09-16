@@ -149,16 +149,20 @@
           <div class="avatar-wrap avatar-placeholder" aria-label="Espaço reservado para foto de Guilherme Arthur">
             <span>GA</span>
           </div>
-          <div>
-            <p class="card-kicker" data-i18n="profile.kicker">Disponível para estágio</p>
-            <h2 data-i18n="profile.title">Desenvolvimento de Sistemas</h2>
-            <p data-i18n="profile.text">
-              Foco em aprender com projetos reais, colaborar com equipes e evoluir em back-end, APIs e bancos de dados.
-            </p>
-          </div>
-          <div class="profile-links">
-            <a href="https://github.com/guiarthur09" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/guilherme-arthur-silveira/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <p class="profile-location" data-i18n="profile.location">Brasil</p>
+          <h2 class="profile-name">Guilherme</h2>
+          <p class="profile-bio" data-i18n="profile.text">
+            Foco em aprender com projetos reais, colaborar com equipes e evoluir em back-end, APIs e bancos de dados.
+          </p>
+          <div class="profile-links" aria-label="Links sociais">
+            <a href="https://github.com/guiarthur09" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M15 22v-3.4a3.1 3.1 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.7a5.2 5.2 0 0 0-1.4-3.6 4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.9 12.9 0 0 0-6.8 0C5.6 2 4.5 2.3 4.5 2.3a4.9 4.9 0 0 0-.1 3.6A5.2 5.2 0 0 0 3 9.5c0 5.2 3.1 6.4 6.1 6.7a2.8 2.8 0 0 0-.8 1.7c-.7.3-2.5.8-3.6-1a2.6 2.6 0 0 0-1.9-1.3s-1.2 0-.1.8a3.3 3.3 0 0 1 1.4 1.9s.8 2.7 4.1 1.8V22" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/guilherme-arthur-silveira/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <span>In</span>
+            </a>
           </div>
         </aside>
       </section>
@@ -186,40 +190,37 @@
           <h2 data-i18n="tech.title">Ferramentas que estou usando e estudando.</h2>
         </div>
 
-        <div class="tech-grid">
-          <article class="tech-card reveal">
-            <span class="tech-icon">01</span>
-            <h3 data-i18n="tech.card1">Linguagens e back-end</h3>
-            <div class="tags">
-              <span>PHP</span>
-              <span>C</span>
-              <span>Python</span>
-              <span>FastAPI</span>
-              <span>Flask</span>
-            </div>
-          </article>
-
-          <article class="tech-card reveal">
-            <span class="tech-icon">02</span>
-            <h3 data-i18n="tech.card2">Dados e banco de dados</h3>
-            <div class="tags">
-              <span>Pandas</span>
-              <span>MySQL</span>
-              <span>SQLite3</span>
-            </div>
-          </article>
-
-          <article class="tech-card reveal">
-            <span class="tech-icon">03</span>
-            <h3 data-i18n="tech.card3">Web e ferramentas</h3>
-            <div class="tags">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>Docker</span>
-            </div>
-          </article>
+        <div class="tech-showcase reveal" aria-label="Tecnologias">
+          <div class="tech-item" aria-label="Python">
+            <img class="tech-logo" src="assets/svg/python-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="Flask">
+            <img class="tech-logo" src="assets/svg/flask-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="Pandas">
+            <img class="tech-logo" src="assets/svg/pandas-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="SQLite3">
+            <img class="tech-logo" src="assets/svg/sqlite-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="PHP">
+            <img class="tech-logo" src="assets/svg/php02-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="HTML">
+            <img class="tech-logo" src="assets/svg/html-124-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="CSS">
+            <img class="tech-logo" src="assets/svg/css3-02-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="MySQL">
+            <img class="tech-logo" src="assets/svg/mysql-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="Linux">
+            <img class="tech-logo" src="assets/svg/linux-svgrepo-com.svg" alt="" />
+          </div>
+          <div class="tech-item" aria-label="Windows">
+            <img class="tech-logo" src="assets/svg/windows-174-svgrepo-com.svg" alt="" />
+          </div>
         </div>
       </section>
 
@@ -229,43 +230,43 @@
           <h2 data-i18n="projects.title">Projetos onde transformo estudo em prática.</h2>
         </div>
 
-        <article class="project-card reveal">
-          <div class="project-main">
-            <div class="project-status" data-i18n="project.status">Em desenvolvimento</div>
-            <h3>JusTraduz</h3>
-            <p class="project-tagline" data-i18n="project.tagline">A linguagem a qual você entende.</p>
-            <p data-i18n="project.text">
-              Plataforma voltada para tradução de documentos jurídicos, com chatbot de IA, agendamento e integração
-              com APIs REST.
-            </p>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="https://github.com/TeamGHCP/JusTraduz" target="_blank" rel="noreferrer">
-                <span data-i18n="project.github">Ver no GitHub</span>
-              </a>
-            </div>
-          </div>
+        <div class="project-showcase reveal" data-project-showcase>
+          <a
+            class="project-row"
+            href="https://github.com/TeamGHCP/JusTraduz"
+            target="_blank"
+            rel="noreferrer"
+            data-project-row
+            data-project-image="assets/img/JusTraduz_Logo_Melhorado.webp"
+            aria-label="Abrir JusTraduz no GitHub"
+          >
+            <span class="project-copy">
+              <span class="project-title">
+                JusTraduz
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </span>
+              <span class="project-description" data-i18n="project.text">
+                Plataforma voltada para tradução de documentos jurídicos, com chatbot de IA, agendamento e integração
+                com APIs REST.
+              </span>
+            </span>
+            <span class="project-year" data-i18n="project.status">Em desenvolvimento</span>
+          </a>
 
-          <div class="project-details">
-            <dl>
-              <div>
-                <dt data-i18n="project.problem.title">Problema resolvido</dt>
-                <dd data-i18n="project.problem.text">Tradução de documentos jurídicos para uma linguagem mais acessível.</dd>
-              </div>
-              <div>
-                <dt data-i18n="project.role.title">Minha participação</dt>
-                <dd data-i18n="project.role.text">Integração com APIs de pagamento e organização do banco de dados.</dd>
-              </div>
-              <div>
-                <dt data-i18n="project.learning.title">Maior aprendizado</dt>
-                <dd data-i18n="project.learning.text">Trabalho em equipe, organização e colaboração durante o desenvolvimento.</dd>
-              </div>
-              <div>
-                <dt data-i18n="project.tech.title">Tecnologias</dt>
-                <dd data-i18n="project.tech.text">PHP, MySQL, HTML5, CSS3, JavaScript e APIs REST.</dd>
-              </div>
-            </dl>
-          </div>
-        </article>
+          <a
+            class="project-preview"
+            href="https://github.com/TeamGHCP/JusTraduz"
+            target="_blank"
+            rel="noreferrer"
+            data-project-preview
+            aria-label="Abrir JusTraduz no GitHub"
+          >
+            <img src="assets/img/JusTraduz_Logo_Melhorado.webp" alt="Logo do projeto JusTraduz" data-project-preview-img />
+          </a>
+        </div>
       </section>
 
       <section class="contact section" id="contato">

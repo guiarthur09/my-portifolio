@@ -9,6 +9,11 @@ const languageTrigger = document.querySelector("[data-language-trigger]");
 const languageCurrent = document.querySelector("[data-language-current]");
 const languageFlag = document.querySelector("[data-language-flag]");
 const languageOptions = [...document.querySelectorAll("[data-lang]")];
+const techItems = [...document.querySelectorAll(".tech-item")];
+const projectShowcase = document.querySelector("[data-project-showcase]");
+const projectRows = [...document.querySelectorAll("[data-project-row]")];
+const projectPreview = document.querySelector("[data-project-preview]");
+const projectPreviewImage = document.querySelector("[data-project-preview-img]");
 
 const languageMeta = {
   en: { label: "English", flag: "assets/img/estados-unidos.png", htmlLang: "en" },
@@ -45,6 +50,7 @@ const translations = {
     "hero.meta.database": "Banco de Dados",
     "hero.meta.data": "Dados",
     "profile.kicker": "Disponível para estágio",
+    "profile.location": "Brasil",
     "profile.title": "Desenvolvimento de Sistemas",
     "profile.text": "Foco em aprender com projetos reais, colaborar com equipes e evoluir em back-end, APIs e bancos de dados.",
     "about.eyebrow": "Sobre mim",
@@ -93,6 +99,7 @@ const translations = {
     "hero.meta.database": "Databases",
     "hero.meta.data": "Data",
     "profile.kicker": "Available for internship",
+    "profile.location": "Brazil",
     "profile.title": "Systems Development",
     "profile.text": "Focused on learning through real projects, collaborating with teams, and growing in back-end, APIs, and databases.",
     "about.eyebrow": "About me",
@@ -141,6 +148,7 @@ const translations = {
     "hero.meta.database": "Bases de datos",
     "hero.meta.data": "Datos",
     "profile.kicker": "Disponible para pasantía",
+    "profile.location": "Brasil",
     "profile.title": "Desarrollo de Sistemas",
     "profile.text": "Enfocado en aprender con proyectos reales, colaborar con equipos y evolucionar en back-end, APIs y bases de datos.",
     "about.eyebrow": "Sobre mí",
@@ -787,6 +795,21 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
+techItems.forEach((item, index) => {
+  item.style.setProperty("--tech-delay", `${(index % 5) * 95}ms`);
+});
+
+const techObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
+    });
+  },
+  { rootMargin: "-8% 0px -8% 0px", threshold: 0.28 }
+);
+
+techItems.forEach((item) => techObserver.observe(item));
+
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -812,7 +835,70 @@ shimmerButtons.forEach((button) => {
   });
 });
 
-window.addEventListener("scroll", updateHeader, { passive: true });
+let previewFrame = 0;
+const previewPosition = {
+  currentX: 0,
+  currentY: 0,
+  targetX: 0,
+  targetY: 0,
+};
+
+const moveProjectPreview = () => {
+  if (!projectPreview) return;
+
+  previewPosition.currentX += (previewPosition.targetX - previewPosition.currentX) * 0.16;
+  previewPosition.currentY += (previewPosition.targetY - previewPosition.currentY) * 0.16;
+
+  projectPreview.style.setProperty("--preview-x", `${previewPosition.currentX}px`);
+  projectPreview.style.setProperty("--preview-y", `${previewPosition.currentY}px`);
+
+  previewFrame = requestAnimationFrame(moveProjectPreview);
+};
+
+const stopProjectPreview = () => {
+  if (!projectPreview) return;
+
+  projectPreview.classList.remove("is-visible");
+  cancelAnimationFrame(previewFrame);
+};
+
+projectRows.forEach((row) => {
+  row.addEventListener("pointerenter", (event) => {
+    if (!projectShowcase || !projectPreview || window.matchMedia("(max-width: 860px)").matches) return;
+
+    const image = row.dataset.projectImage;
+    if (image && projectPreviewImage) projectPreviewImage.src = image;
+
+    const rect = projectShowcase.getBoundingClientRect();
+    previewPosition.currentX = event.clientX - rect.left + 28;
+    previewPosition.currentY = event.clientY - rect.top - 80;
+    previewPosition.targetX = previewPosition.currentX;
+    previewPosition.targetY = previewPosition.currentY;
+
+    projectPreview.classList.add("is-visible");
+    cancelAnimationFrame(previewFrame);
+    previewFrame = requestAnimationFrame(moveProjectPreview);
+  });
+
+  row.addEventListener("pointermove", (event) => {
+    if (!projectShowcase || !projectPreview?.classList.contains("is-visible")) return;
+
+    const rect = projectShowcase.getBoundingClientRect();
+    previewPosition.targetX = event.clientX - rect.left + 28;
+    previewPosition.targetY = event.clientY - rect.top - 80;
+  });
+
+  row.addEventListener("pointerleave", stopProjectPreview);
+});
+
+window.addEventListener(
+  "scroll",
+  () => {
+    updateHeader();
+    stopProjectPreview();
+  },
+  { passive: true }
+);
 window.addEventListener("resize", () => moveNavIndicator(), { passive: true });
 window.addEventListener("pageshow", restartHeroIntro);
 updateHeader();
