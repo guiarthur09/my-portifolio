@@ -857,7 +857,7 @@ const updateHeader = () => {
 
 const restartHeroIntro = () => {
   const animatedElements = [
-    ...document.querySelectorAll(".hero-paths, .floating-paths, .path, .title-word"),
+    ...document.querySelectorAll(".title-word"),
   ];
 
   animatedElements.forEach((element) => {
