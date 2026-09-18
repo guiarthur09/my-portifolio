@@ -27,6 +27,7 @@ const binaryFiles = [
   ["assets/img/brasilia.png", "image/png"],
   ["assets/img/espanha.png", "image/png"],
   ["assets/img/estados-unidos.png", "image/png"],
+  ["assets/img/foto-portifolio.png", "image/png"],
   ["assets/img/JusTraduz_Logo_Melhorado.webp", "image/webp"],
 ];
 
@@ -47,6 +48,15 @@ for (const [file, type] of binaryFiles) {
 entries["/"] = entries["/index.html"];
 
 const worker = `const files = ${JSON.stringify(entries, null, 2)};
+
+const securityHeaders = {
+  "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+  "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY"
+};
 
 const fromBase64 = (value) => {
   const binary = atob(value);
@@ -71,6 +81,7 @@ export default {
 
     return new Response(body, {
       headers: {
+        ...securityHeaders,
         "content-type": file.type,
         "cache-control": pathname === "/" || pathname === "/index.html"
           ? "no-cache"

@@ -846,14 +846,16 @@ h3 {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
   width: min(100%, 380px);
-  min-height: 432px;
+  min-height: 500px;
   justify-self: center;
   border-color: rgba(84, 214, 184, 0.34);
   border-radius: 28px;
-  padding: 30px 32px;
+  padding: 34px 34px 32px;
   background:
+    radial-gradient(circle at top, rgba(84, 214, 184, 0.13), transparent 38%),
     linear-gradient(180deg, rgba(18, 20, 22, 0.96), rgba(13, 16, 18, 0.94)),
     rgba(16, 18, 20, 0.92);
   box-shadow:
@@ -912,12 +914,13 @@ h3 {
 }
 
 .avatar-wrap {
-  width: 82px;
+  width: clamp(108px, 9vw, 124px);
   aspect-ratio: 1;
-  margin: 0 0 28px;
+  margin: 0 auto 24px;
+  overflow: hidden;
   border: 4px solid rgba(84, 214, 184, 0.62);
-  border-radius: 50%;
-  padding: 6px;
+  border-radius: 999px;
+  padding: 5px;
   background:
     linear-gradient(135deg, rgba(84, 214, 184, 0.38), rgba(242, 184, 75, 0.2)),
     rgba(7, 16, 19, 0.92);
@@ -934,7 +937,9 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  object-position: center 24%;
+  border-radius: inherit;
+  background: rgba(7, 16, 19, 0.78);
 }
 
 .avatar-placeholder {
@@ -988,33 +993,55 @@ h3 {
   margin-bottom: 8px;
   color: rgba(238, 248, 247, 0.55) !important;
   font-size: 0.88rem;
+  text-align: center;
 }
 
 .profile-name {
   max-width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   font-size: clamp(1.75rem, 3vw, 2rem);
   line-height: 1.12;
+  text-align: center;
+}
+
+.profile-role {
+  margin-bottom: 18px;
+  color: var(--accent) !important;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .profile-bio {
   max-width: 282px;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   color: rgba(238, 248, 247, 0.76) !important;
   font-size: 1rem;
   line-height: 1.65;
+  text-align: center;
+}
+
+.profile-divider {
+  width: 52%;
+  height: 1px;
+  margin: 28px auto 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(84, 214, 184, 0.42), transparent);
 }
 
 .profile-links {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: auto;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 0;
 }
 
 .profile-links a {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   display: inline-grid;
   place-items: center;
   color: rgba(238, 248, 247, 0.58);
@@ -1029,19 +1056,63 @@ h3 {
 }
 
 .profile-links svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
+  width: 23px;
+  height: 23px;
+  fill: currentColor;
 }
 
 .profile-links span {
   font-family: Inter, system-ui, sans-serif;
   font-size: 1.03rem;
   line-height: 1;
+}
+
+.profile-cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  border: 1px solid rgba(84, 214, 184, 0.24);
+  border-radius: 999px;
+  padding: 0 18px;
+  color: rgba(238, 248, 247, 0.86);
+  background:
+    linear-gradient(180deg, rgba(238, 248, 247, 0.08), rgba(238, 248, 247, 0.035)),
+    rgba(7, 16, 19, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 38px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+  font-size: 0.9rem;
+  font-weight: 800;
+  transition:
+    border-color 320ms ease,
+    color 320ms ease,
+    filter 320ms ease,
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-cta:hover {
+  border-color: rgba(84, 214, 184, 0.52);
+  color: var(--accent);
+  filter: drop-shadow(0 0 16px rgba(84, 214, 184, 0.22));
+  transform: translateY(-2px);
+}
+
+.profile-cta svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-cta:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .split {
@@ -1373,19 +1444,14 @@ h3 {
 }
 
 .contact-icon-link svg {
-  width: 26px;
-  height: 26px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
+  width: 25px;
+  height: 25px;
+  fill: currentColor;
 }
 
 .contact-icon-link .gmail-icon {
-  width: 30px;
-  height: 24px;
-  stroke-width: 2.6;
+  width: 27px;
+  height: 27px;
 }
 
 .contact-icon-link span {
@@ -1555,17 +1621,12 @@ h3 {
 .footer-socials svg {
   width: 22px;
   height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
+  fill: currentColor;
 }
 
 .footer-socials .gmail-icon {
-  width: 28px;
-  height: 22px;
-  stroke-width: 2.4;
+  width: 24px;
+  height: 24px;
 }
 
 .footer-socials span {

@@ -21,23 +21,14 @@ let copyToastTimer;
 
 const languageMeta = {
   en: { label: "English", flag: "assets/img/estados-unidos.png", htmlLang: "en" },
-  "zh-CN": { label: "简体中文", flag: "🇨🇳", htmlLang: "zh-CN" },
-  "zh-TW": { label: "繁體中文", flag: "🇹🇼", htmlLang: "zh-TW" },
-  ja: { label: "日本語", flag: "🇯🇵", htmlLang: "ja" },
   es: { label: "Español", flag: "assets/img/espanha.png", htmlLang: "es" },
-  fr: { label: "Français", flag: "🇫🇷", htmlLang: "fr" },
   "pt-BR": { label: "Português (BR)", flag: "assets/img/brasilia.png", htmlLang: "pt-BR" },
-  ko: { label: "한국어", flag: "🇰🇷", htmlLang: "ko" },
-  ru: { label: "Русский", flag: "🇷🇺", htmlLang: "ru" },
-  tr: { label: "Türkçe", flag: "🇹🇷", htmlLang: "tr" },
-  id: { label: "Bahasa Indonesia", flag: "🇮🇩", htmlLang: "id" },
-  de: { label: "Deutsch", flag: "🇩🇪", htmlLang: "de" },
-  fa: { label: "فارسی", flag: "🇮🇷", htmlLang: "fa" },
 };
 
 const translations = {
   "pt-BR": {
     "language.select": "Selecionar idioma",
+    "nav.main": "Navegação principal",
     "nav.home": "Início",
     "nav.about": "Sobre",
     "nav.tech": "Tecnologias",
@@ -47,16 +38,23 @@ const translations = {
     "hero.title.hello": "Olá,",
     "hero.title.i": "eu",
     "hero.title.am": "sou",
+    "hero.title.aria": "Olá, eu sou Guilherme Arthur Silveira.",
     "hero.text": "Estudante de Desenvolvimento de Sistemas no SENAI, buscando estágio para transformar estudo, prática e projetos em soluções úteis para pessoas e empresas.",
     "hero.cta": "Ver projetos",
+    "hero.actions": "Ações principais",
+    "hero.meta.aria": "Informações rápidas",
     "hero.meta.software": "Desenvolvimento de Software",
     "hero.meta.backend": "Back-end",
     "hero.meta.database": "Banco de Dados",
     "hero.meta.data": "Dados",
     "profile.kicker": "Disponível para estágio",
+    "profile.summary": "Resumo de perfil",
+    "profile.avatar": "Espaço reservado para foto de Guilherme Arthur",
+    "profile.socials": "Links sociais",
     "profile.location": "Brasil",
     "profile.title": "Desenvolvimento de Sistemas",
     "profile.text": "Foco em aprender com projetos reais, colaborar com equipes e evoluir em back-end, APIs e bancos de dados.",
+    "profile.cta": "Entrar em contato",
     "about.eyebrow": "Sobre mim",
     "about.title": "Em busca da primeira oportunidade para crescer como desenvolvedor.",
     "about.p1": "Meu nome é Guilherme, sou estudante de Desenvolvimento de Sistemas e estou em busca de um estágio para colocar em prática tudo o que venho aprendendo em programação, banco de dados e construção de aplicações.",
@@ -84,13 +82,16 @@ const translations = {
     "contact.title": "Vamos conversar sobre oportunidades, estágio ou projetos.",
     "contact.text": "Estou aberto a aprender, contribuir com equipes e participar de desafios na área de desenvolvimento.",
     "contact.email": "Enviar e-mail",
+    "contact.copyEmail": "Copiar e-mail",
     "footer.description": "Desenvolvedor Back-End em formação, construindo soluções com código, dados e bancos de dados.",
     "footer.contact": "Vamos conversar?",
+    "footer.home": "Voltar ao início",
     "footer.rights": "© 2026 Guilherme Arthur Silveira. Todos os direitos reservados.",
     "toast.emailCopied": "E-mail copiado com sucesso",
   },
   en: {
     "language.select": "Select language",
+    "nav.main": "Main navigation",
     "nav.home": "Home",
     "nav.about": "About",
     "nav.tech": "Tech",
@@ -100,16 +101,23 @@ const translations = {
     "hero.title.hello": "Hi,",
     "hero.title.i": "I",
     "hero.title.am": "am",
+    "hero.title.aria": "Hi, I am Guilherme Arthur Silveira.",
     "hero.text": "Systems Development student at SENAI, looking for an internship to turn study, practice, and projects into useful solutions for people and businesses.",
     "hero.cta": "View projects",
+    "hero.actions": "Primary actions",
+    "hero.meta.aria": "Quick information",
     "hero.meta.software": "Software Development",
     "hero.meta.backend": "Back-end",
     "hero.meta.database": "Databases",
     "hero.meta.data": "Data",
     "profile.kicker": "Available for internship",
+    "profile.summary": "Profile summary",
+    "profile.avatar": "Reserved space for Guilherme Arthur's photo",
+    "profile.socials": "Social links",
     "profile.location": "Brazil",
     "profile.title": "Systems Development",
     "profile.text": "Focused on learning through real projects, collaborating with teams, and growing in back-end, APIs, and databases.",
+    "profile.cta": "Contact me",
     "about.eyebrow": "About me",
     "about.title": "Looking for my first opportunity to grow as a developer.",
     "about.p1": "My name is Guilherme, I study Systems Development and I am looking for an internship to put into practice what I have been learning in programming, databases, and application development.",
@@ -137,13 +145,16 @@ const translations = {
     "contact.title": "Let's talk about opportunities, internships, or projects.",
     "contact.text": "I am open to learning, contributing to teams, and taking on challenges in development.",
     "contact.email": "Send email",
+    "contact.copyEmail": "Copy email",
     "footer.description": "Back-End Developer in training, building solutions with code, data, and databases.",
     "footer.contact": "Let's talk?",
+    "footer.home": "Back to top",
     "footer.rights": "© 2026 Guilherme Arthur Silveira. All rights reserved.",
     "toast.emailCopied": "Email copied successfully",
   },
   es: {
     "language.select": "Seleccionar idioma",
+    "nav.main": "Navegación principal",
     "nav.home": "Inicio",
     "nav.about": "Sobre mí",
     "nav.tech": "Tecnologías",
@@ -153,16 +164,23 @@ const translations = {
     "hero.title.hello": "Hola,",
     "hero.title.i": "yo",
     "hero.title.am": "soy",
+    "hero.title.aria": "Hola, soy Guilherme Arthur Silveira.",
     "hero.text": "Estudiante de Desarrollo de Sistemas en SENAI, buscando una pasantía para transformar estudio, práctica y proyectos en soluciones útiles para personas y empresas.",
     "hero.cta": "Ver proyectos",
+    "hero.actions": "Acciones principales",
+    "hero.meta.aria": "Información rápida",
     "hero.meta.software": "Desarrollo de Software",
     "hero.meta.backend": "Back-end",
     "hero.meta.database": "Bases de datos",
     "hero.meta.data": "Datos",
     "profile.kicker": "Disponible para pasantía",
+    "profile.summary": "Resumen de perfil",
+    "profile.avatar": "Espacio reservado para la foto de Guilherme Arthur",
+    "profile.socials": "Links sociales",
     "profile.location": "Brasil",
     "profile.title": "Desarrollo de Sistemas",
     "profile.text": "Enfocado en aprender con proyectos reales, colaborar con equipos y evolucionar en back-end, APIs y bases de datos.",
+    "profile.cta": "Contactarme",
     "about.eyebrow": "Sobre mí",
     "about.title": "Busco mi primera oportunidad para crecer como desarrollador.",
     "about.p1": "Mi nombre es Guilherme, estudio Desarrollo de Sistemas y busco una pasantía para poner en práctica lo que he aprendido en programación, bases de datos y creación de aplicaciones.",
@@ -190,8 +208,10 @@ const translations = {
     "contact.title": "Hablemos sobre oportunidades, pasantías o proyectos.",
     "contact.text": "Estoy abierto a aprender, contribuir con equipos y participar en desafíos de desarrollo.",
     "contact.email": "Enviar email",
+    "contact.copyEmail": "Copiar email",
     "footer.description": "Desarrollador Back-End en formación, creando soluciones con código, datos y bases de datos.",
     "footer.contact": "¿Hablamos?",
+    "footer.home": "Volver al inicio",
     "footer.rights": "© 2026 Guilherme Arthur Silveira. Todos los derechos reservados.",
     "toast.emailCopied": "Correo copiado correctamente",
   },
@@ -709,7 +729,7 @@ const translatePage = (lang) => {
 
   document.documentElement.lang = meta.htmlLang;
   document.documentElement.dir = "ltr";
-  document.title = lang === "pt-BR" ? "Guilherme Arthur Silveira | Portfólio" : "Guilherme Arthur Silveira | Portfolio";
+  document.title = selectedLang === "pt-BR" ? "Guilherme Arthur Silveira | Portfólio" : "Guilherme Arthur Silveira | Portfolio";
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
@@ -729,7 +749,11 @@ const translatePage = (lang) => {
     option.setAttribute("aria-checked", String(option.dataset.lang === selectedLang));
   });
 
-  localStorage.setItem("portfolio-language", selectedLang);
+  try {
+    localStorage.setItem("portfolio-language", selectedLang);
+  } catch {
+    // The portfolio still works if storage is blocked by the browser.
+  }
   requestAnimationFrame(() => moveNavIndicator());
 };
 
@@ -742,8 +766,10 @@ const fallbackCopyEmail = () => {
   textarea.style.top = "0";
   document.body.appendChild(textarea);
   textarea.select();
-  document.execCommand("copy");
+  const copied = document.execCommand("copy");
   textarea.remove();
+
+  return copied;
 };
 
 const showCopyToast = () => {
@@ -766,10 +792,12 @@ const copyEmailToClipboard = async (event) => {
     if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(emailAddress);
     } else {
-      fallbackCopyEmail();
+      const copied = fallbackCopyEmail();
+      if (!copied) return;
     }
   } catch {
-    fallbackCopyEmail();
+    const copied = fallbackCopyEmail();
+    if (!copied) return;
   }
 
   showCopyToast();
@@ -961,5 +989,13 @@ window.addEventListener(
 window.addEventListener("resize", () => moveNavIndicator(), { passive: true });
 window.addEventListener("pageshow", restartHeroIntro);
 updateHeader();
-translatePage(localStorage.getItem("portfolio-language") || "pt-BR");
+let storedLanguage = "pt-BR";
+
+try {
+  storedLanguage = localStorage.getItem("portfolio-language") || "pt-BR";
+} catch {
+  storedLanguage = "pt-BR";
+}
+
+translatePage(storedLanguage);
 moveNavIndicator();
