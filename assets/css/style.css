@@ -902,8 +902,11 @@ h3 {
 
 .profile-name {
   max-width: 100%;
+  margin-top: 0;
   margin-bottom: 6px;
+  color: var(--text) !important;
   font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 800;
   line-height: 1.12;
   text-align: center;
 }

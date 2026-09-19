@@ -1,4 +1,5 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 const root = process.cwd();
@@ -7,6 +8,8 @@ const serverDir = path.join(dist, "server");
 
 const textFiles = [
   ["index.html", "text/html; charset=utf-8"],
+  ["robots.txt", "text/plain; charset=utf-8"],
+  ["sitemap.xml", "application/xml; charset=utf-8"],
   ["assets/css/style.css", "text/css; charset=utf-8"],
   ["assets/js/script.js", "text/javascript; charset=utf-8"],
   ["assets/svg/css3-02-svgrepo-com.svg", "image/svg+xml; charset=utf-8"],
@@ -32,9 +35,16 @@ const binaryFiles = [
 ];
 
 const entries = {};
+let inlineScriptHash = "";
 
 for (const [file, type] of textFiles) {
   const content = await readFile(path.join(root, file), "utf8");
+  if (file === "index.html") {
+    const jsonLd = content.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    if (jsonLd) {
+      inlineScriptHash = ` 'sha256-${createHash("sha256").update(jsonLd[1]).digest("base64")}'`;
+    }
+  }
   const route = `/${file.replaceAll("\\", "/")}`;
   entries[route] = { body: content, type, encoding: "text" };
 }
@@ -50,7 +60,7 @@ entries["/"] = entries["/index.html"];
 const worker = `const files = ${JSON.stringify(entries, null, 2)};
 
 const securityHeaders = {
-  "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+  "content-security-policy": "default-src 'self'; script-src 'self'${inlineScriptHash}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
   "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=()",
   "referrer-policy": "strict-origin-when-cross-origin",
   "strict-transport-security": "max-age=31536000; includeSubDomains; preload",

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guiarthur09.github.io/my-portifolio/sitemap.xml
